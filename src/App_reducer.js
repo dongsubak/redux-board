@@ -1,0 +1,4 @@
+const BOARD_SAVE ='SAVE';
+const BOARD_REMOVE = 'REMOVE';
+const BOARD_READ = 'ONE';
+const BOARD_LIST = 'LIST';
