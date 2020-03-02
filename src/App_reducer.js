@@ -1,9 +1,9 @@
 import { createAction, handleActions } from 'redux-actions';
 
-//const BOARD_SAVE ='SAVE';
-//const BOARD_REMOVE = 'REMOVE';
-//const BOARD_READ = 'ONE';
-//const BOARD_LIST = 'LIST';
+const BOARD_SAVE ='SAVE';
+const BOARD_REMOVE = 'REMOVE';
+const BOARD_READ = 'ONE';
+const BOARD_LIST = 'LIST';
 
 export const board_save = createAction(BOARD_SAVE);
 export const board_remove = createAction(BOARD_REMOVE, brdno => brdno);
@@ -62,21 +62,21 @@ export default function board_reducer(state = initialState, action) {
 
 export default handleActions({
     [BOARD_SAVE]: (state, { payload: data }) => {
-        let board = state.boards;
+        let boards = state.boards;
 
-        let data = action.data;
-            let maxNo = state.maxNo;
+        
+        let maxNo = state.maxNo;
             if (!data.brdno) { // new data Insert
                 return { maxNo: maxNo+1, boards: boards.concat({...data, brdno: maxNo, brddate: new Date()}), selectedBoard: {} };
             }
             return {...state, boards: boards.map(row => data.brdno === row.brdno ? {...data} : row), selectedBoard: {} };
     },
     [BOARD_REMOVE]: (state, { payload: brdno }) => {
-        let board = state.boards;
-        return {...state, boards: boards.filter(row => row.brdno !== action.brdno), selectedBoard: {} };
+        let boards = state.boards;
+        return {...state, boards: boards.filter(row => row.brdno !== brdno), selectedBoard: {} };
     },
     [BOARD_READ]: (state, { payload: brdno }) => {
-        let board = state.boards;
+        let boards = state.boards;
         return {...state, selectedBoard: boards.find(row => row.brdno === brdno) };
     }
 }, initialState);

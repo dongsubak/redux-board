@@ -15,7 +15,7 @@ class BoardItem extends Component {
                 <td>{row.brdno}</td>
                 <td><a onClick={() => { this.handleUpdateForm(row.brdno) }}>{row.brdtitle}</a></td>
                 <td>{row.brdwriter}</td>
-                <td>{row.brddate.toLocaleDateStrin('ko-KR')}</td>
+                <td>{row.brddate.toLocaleDateString('ko-KR')}</td>
                 <td><a onClick={() => { this.props.dispatch(board_remove(row.brdno)) }}>X</a></td>
             </tr>
         )
