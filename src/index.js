@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import board_reducer from './App-reducer';
 
-let store = createStore(board_reducer, window, __REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+let store = createStore(board_reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 
 
